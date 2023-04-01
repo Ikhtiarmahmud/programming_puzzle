@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blue Square</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+		#blueSquare {
+			width: 100px;
+			height: 100px;
+			background-color: blue;
+			position: absolute;
+			top: 50px;
+            left: 0;
+		}
+	</style>
+</head>
+<body>
+	<div id="blueSquare"></div>
+</body>
+</html>
+
+<script>
+	let blueSquare = document.getElementById('blueSquare');
+	let x = 0;
+	let y = 50;
+	let xDirection = 1;
+	let yDirection = 1;
+	
+	function moveSquare() {
+		x += 10 * xDirection;
+		y += 10 * yDirection;
+		
+		if (x >= window.innerWidth - 100 || x <= 0) {
+			xDirection *= -1;
+		}
+		if (y >= window.innerHeight - 100 || y <= 0) {
+			yDirection *= -1;
+		}
+		
+		blueSquare.style.top = y + 'px';
+		blueSquare.style.left = x + 'px';
+	}
+	
+	setInterval(moveSquare, 1000);
+</script>
